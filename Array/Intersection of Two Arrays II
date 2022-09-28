@@ -1,0 +1,36 @@
+public class Solution {
+    public int[] Intersect(int[] nums1, int[] nums2) {
+
+        //Put nums1 in dictionary<number,count>
+        Dictionary<int,int> nums1_dict = new Dictionary<int,int>();
+        
+        foreach(int number in nums1)
+        {
+            if(!nums1_dict.ContainsKey(number))
+            {
+                nums1_dict.Add(number,1);
+            }
+            else
+            {
+                nums1_dict[number]++;
+            }
+        }
+        
+        List<int> final = new List<int>();
+        
+        //Go through nums2 and see if number is in dictionary
+        foreach(int num in nums2)
+        {
+            if(nums1_dict.ContainsKey(num))
+            {
+                if(nums1_dict[num] > 0)
+                {
+                    final.Add(num);
+                    nums1_dict[num]--;
+                }
+            }
+        }
+        
+        return final.ToArray();
+}
+}
