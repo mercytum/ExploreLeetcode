@@ -1,0 +1,33 @@
+public class Solution {
+    public void MoveZeroes(int[] nums) {
+        List<int> numsList = new List<int>();
+        int zero_counts = 0;
+        foreach(int number in nums)
+        {
+            if(number != 0)
+            {
+                numsList.Add(number);
+            }
+            if(number == 0)
+            {
+                zero_counts++;
+            }
+            
+        }
+        
+        for(int i = 0; i < numsList.Count; i++)
+        {
+            nums[i] = numsList[i];
+        }
+        
+        int start_zero = numsList.Count;
+        while(zero_counts > 0)
+        {
+            nums[start_zero] = 0;
+            start_zero++;
+            zero_counts--;
+        }
+        
+        
+    }
+}
