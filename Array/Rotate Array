@@ -1,0 +1,27 @@
+public class Solution {
+    public void Rotate(int[] nums, int k) {
+        if(nums.Length < 1000)
+        {
+            int last_index = nums.Length - 1;
+            double rounds = 0;
+            while( rounds < k)
+            {
+                int last_value = nums[last_index];
+                for(int i = last_index; i > 0; i--)
+                {
+                    nums[i] = nums[i-1];
+                }
+                nums[0] = last_value;
+
+                rounds++;
+            }
+        }
+        else 
+        {
+            Array.Reverse(nums);
+            Array.Reverse(nums, 0,k);
+            Array.Reverse(nums, k, nums.Length - k);
+        }
+
+    }
+}
