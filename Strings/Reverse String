@@ -1,0 +1,21 @@
+public class Solution {
+    public void ReverseString(char[] s) {    
+        
+//         Array.Reverse(s);
+        
+        
+        int start = 0;
+        int end = s.Length - 1;
+        
+        char placeholder;
+        
+        while(start < end)
+        {
+            placeholder = s[start];
+            s[start] = s[end];
+            s[end] = placeholder;
+            start++;
+            end--;
+        }
+    }
+}
