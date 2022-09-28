@@ -1,0 +1,26 @@
+public class Solution {
+    public int RemoveDuplicates(int[] nums) {
+        int count = 1;
+        int current = 0;
+        int next = current + 1;
+        
+        while(next < nums.Length  )
+        { 
+            
+            if(nums[next] > nums[current] )
+            {
+                nums[current+1] = nums[next];
+                current += 1;
+                next = current + 1;
+                count += 1;
+            }
+            else{
+                next += 1;
+            }
+            
+            
+        }
+        
+        return count;
+    }
+}
