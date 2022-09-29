@@ -1,0 +1,31 @@
+public class Solution {
+    public int FirstUniqChar(string s) {
+        Dictionary<char,int> distinct_dict = new Dictionary<char,int>();
+        
+        //Put characters in dictionary
+        for(int i = 0; i < s.Length; i++)
+        {
+            if(!distinct_dict.ContainsKey(s[i]))
+            {
+                distinct_dict.Add(s[i],1);
+            }
+            else
+            {
+                distinct_dict[s[i]]++;
+            }
+        }
+        
+        //Go through string and check for non-repeating characters
+        for(int i = 0; i < s.Length; i++)
+        {
+            if(distinct_dict[s[i]] < 2)
+            {
+                return i;
+            }
+            
+        }
+        
+        return -1;
+        
+    }
+}
