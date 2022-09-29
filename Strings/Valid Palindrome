@@ -1,0 +1,44 @@
+public class Solution {
+    public bool IsPalindrome(string s) {
+        string lower_s = s.ToLower();
+        
+        if(lower_s.Length == 1)
+        {
+            return true;
+        }
+
+        //Remove everything that isn't a character or number
+        string str = "";
+        
+        for(int i = 0; i < lower_s.Length; i++)
+        {
+            if(Char.IsLetter(lower_s[i]) || Char.IsNumber(lower_s[i]))
+            {
+                str += lower_s[i];
+            }
+        }
+        
+        Console.WriteLine(str);
+        
+        //Have 2 pointers, start and end that checks if they are the same
+        int start = 0;
+        int end = str.Length -1;
+        
+        
+        
+        while(start < end)
+        {
+  
+            if(str[start] != str[end])
+            {
+                return false;
+            }
+            
+            start += 1;
+            end -= 1;
+        }
+        
+        return true;
+        
+    }
+}
