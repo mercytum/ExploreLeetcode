@@ -1,0 +1,26 @@
+public class Solution {
+    public bool IsAnagram(string s, string t) {
+        if(s.Length != t.Length)
+        {
+            return false;
+        }
+        char[] s_chars = s.ToArray();
+        char[] t_chars = t.ToArray();
+        Array.Sort(s_chars);
+        Array.Sort(t_chars);
+        
+        string S = new string(s_chars);
+        String T = new string(t_chars);
+        
+        if(S == T)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        
+        
+    }
+}
