@@ -1,0 +1,33 @@
+public class Solution {
+    public int Reverse(int x) {
+        bool IsNegative = false;
+        if(x < 0)
+        {
+            IsNegative = true;
+            x *= -1;
+        }
+        long reversed = 0;
+        while(x > 0)
+        {
+            reversed = (reversed * 10) + (x%10);
+            x /= 10;
+            Console.WriteLine(reversed);
+
+        }
+        
+        Console.WriteLine(reversed);
+        if(reversed > Int32.MaxValue)
+        {
+            return 0;
+        }
+        else
+        {
+            if(IsNegative)
+            {
+                return Convert.ToInt32(reversed *= -1);
+            }
+            return Convert.ToInt32(reversed); 
+        }
+        
+    }
+}
