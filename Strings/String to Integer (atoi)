@@ -1,0 +1,45 @@
+public class Solution {
+    public int MyAtoi(string s) {
+        
+        bool IsNegative = false;
+        string num  = "";
+        
+        //Read the number
+        for(int i = 0; i < s.Length; i++)
+        {
+            if(s[i] == '-')
+            {
+                IsNegative = true;
+            }
+            
+            else if(Char.IsLetter(s[i]))
+            {
+                break;
+            }
+            
+            else if(Char.IsNumber(s[i]))
+            {
+                num += s[i];
+            }
+            
+            else if(Char.IsWhiteSpace(s[i]) && num.Length > 0)
+            {
+                break;
+            }
+        }
+        
+        long number = Convert.ToInt64(num);
+        
+        //Check if in range
+        if(number > Int32.MinValue && number < Int32.MaxValue)
+        {
+            if(IsNegative)
+            {
+                return -Convert.ToInt32(number);
+            }
+            return Convert.ToInt32(number);
+        }
+        
+        return 0;
+    }
+}
